@@ -56,14 +56,14 @@
 }
 
 h1 {
-    font-size: 2vw;
+    font-size: 1.5vw;
     color: var(--color-text);
 }
 
 button {
     display: flex;
     align-items: center;
-    font-size: 1.5vw;
+    font-size: 1.2vw;
     gap: 0.7vw;
     background-color: transparent;
     border: none;
