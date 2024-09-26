@@ -1,11 +1,13 @@
 <script>
 
 import TheHeader from './components/TheHeader.vue';
+import TheMain from './components/TheMain.vue';
 
 export default {
   name: 'App',
   components: {
-    TheHeader
+    TheHeader,
+    TheMain
   },
   data() {
     return {
@@ -48,6 +50,8 @@ export default {
 <template>
 
   <TheHeader :functionCick="toggleTheme" :value_btn_theme="btn_value"/>
+
+  <TheMain />
 
 </template>
 

@@ -1,5 +1,6 @@
 <script>
-import TopPage from './TopPage.vue'
+import TopPage from './TopPage.vue';
+
 
     export default{
         name: "TheHeader",
@@ -18,6 +19,7 @@ import TopPage from './TopPage.vue'
     
     <header>
         <TopPage :functionCick="functionCick" :value_btn_theme="value_btn_theme"/>
+
     </header>
 
 </template>

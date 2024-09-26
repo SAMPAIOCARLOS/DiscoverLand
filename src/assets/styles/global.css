@@ -8,9 +8,15 @@
 :root {
     --color-text: #ffffff;
     --background-top: #2B3945;
+    --background-main: #202C37;
 }
 
 .theme_Light {
     --color-text: #000000;
     --background-top: #ffffff;
+    --background-main: #F2F2F2;
+}
+
+body {
+    overflow-x: hidden;
 }
