@@ -1,29 +1,26 @@
 <script>
-import { GetData } from '../api/fetchData';
+
     export default {
         name: 'SectionSearch',
         data() {
             return {
                 list_continent: ['Africa', 'Americas', 'Asia', 'Europe', 'Oceania'],
-                data_api: [],
                 array_mod: [],
                 selectedOption: ''
             }
         },
-        async created() {
-            try {
-                this.data_api = await GetData()
-            } catch (error) {
-                console.log(`Erro ao carregar os dados`)
-            }
-        },
         methods: {
             filter_data() {
-                this.array_mod = this.data_api.filter(data => this.selectedOption === data.region)
+                this.array_mod = this.DataApi.filter(data => this.selectedOption === data.region)
 
                 console.log(this.array_mod)
+
+                this.$emit('dataFiltered', this.array_mod);
             },
 
+        },
+        props: {
+            DataApi: {type: Array, required: true}
         }
     }
 </script>

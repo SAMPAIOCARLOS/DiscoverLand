@@ -1,0 +1,82 @@
+chat vou te explicar uma situação pra ve se vc consegue me ajudar 
+
+eu tenho um arquvo separado de uma função que busca dados de uma api com o fetch
+
+no meu componente Main.vue eu importo essa função
+
+import { GetData } from '../api/fetchData';
+
+e faço isso para colocar o valor dela dentro desse array que está no data 
+async created() {
+            try {
+                this.data_api = await GetData()
+            } catch (error) {
+                console.log(Erro ao carregar os dados)
+            }
+        },
+
+depois que o array data_api já está com os dados da api eu passo ele por props pra um componente filho que pega esses dados e constroi os cards 
+
+até agora deu pra entender ?
+
+
+
+
+eu tenho outro componente que tem um select com opçoes que vai filtrar esses dados para mandar um novo array de obj modificado para que seja feito a construção dos cards filtrados 
+
+e esse componente que tem um select que o nome dele é SectionSearch  
+
+eu faço isso e não estou conseguindo mandar esse novo array para o data_api
+
+<script>
+import { GetData } from '../api/fetchData';
+
+
+    export default {
+        name: 'SectionSearch',
+        data() {
+            return {
+                list_continent: ['Africa', 'Americas', 'Asia', 'Europe', 'Oceania'],
+                data_api: [],
+                array_mod: [],
+                selectedOption: ''
+            }
+        },
+        async created() {
+            try {
+                this.data_api = await GetData()
+            } catch (error) {
+                console.log(Erro ao carregar os dados)
+            }
+        },
+        methods: {
+            filter_data() {
+                this.array_mod = this.data_api.filter(data => this.selectedOption === data.region)
+
+                console.log(this.array_mod)
+            },
+
+        }
+    }
+</script>
+
+
+<template>
+    <div id="container_bottom_header">
+        <div id="container_group_search">
+            <div id="container_input_search">
+                <ion-icon name="search-outline"></ion-icon>
+                <input type="text" id="input_search" placeholder="Search for a country">
+            </div>
+
+            <select name="select_continent" id="select_continent" @change="filter_data()" v-model="selectedOption">
+                <option selected disabled>Select your continent</option>
+                <option :value="item" v-for="(item, index) in list_continent" :key="index"> {{ item }} </option>
+            </select>
+
+        </div>
+    </div>
+</template>
+
+
+será que a abordagem que eu estou usando não é adquada 

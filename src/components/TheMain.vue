@@ -10,7 +10,8 @@ import SectionSearch from './SectionSearch.vue';
         },
         data() {
             return {
-                data_api: []
+                data_api: [],
+                filteredData: []
             }
         },
         async created() {
@@ -21,13 +22,13 @@ import SectionSearch from './SectionSearch.vue';
             }
         },
         methods: {
-            onchange() {
-                this.data_api = this.data_api_mod
-            }
+            updateFilteredData(filteredData) {
+                // Atualize a propriedade filteredData com os dados filtrados
+                this.filteredData = filteredData;
+                console.log(this.filteredData);
+            },
         },
-        props: {
-            data_api_mod: {type: Object, required: true}
-        }
+       
     }
 
 </script>
@@ -37,9 +38,9 @@ import SectionSearch from './SectionSearch.vue';
     
     <main>
 
-        <SectionSearch />
+        <SectionSearch :DataApi="data_api" @dataFiltered="updateFilteredData"/>
 
-        <CardCountry :array_data="data_api"/>
+        <CardCountry :array_data="filteredData"/>
 
     </main>
 
