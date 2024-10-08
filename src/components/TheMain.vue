@@ -31,10 +31,6 @@ import SectionSearch from './SectionSearch.vue';
             },
             update_country() {
                 this.All_country = false
-            },
-            metodo_teste(valor) {
-                this.input_filter.push(valor)
-                console.log(this.input_filter)
             }
         },
        
@@ -47,13 +43,9 @@ import SectionSearch from './SectionSearch.vue';
     
     <main>
 
-        <SectionSearch :DataApi="data_api" @eventFilter="updateFilteredData" @open_country="update_country" @teste="metodo_teste"/>
+        <SectionSearch :DataApi="data_api" @eventFilter="updateFilteredData" @open_country="update_country" />
 
-
-        <CardCountry :array_data="data_api" v-if="All_country"/>
-        <CardCountry :array_data="filteredData" v-else/>
-
-        <!-- <CardCountry :array_data="input_filter"/> -->
+        <CardCountry :array_data="All_country ? data_api : filteredData"/>
 
     </main>
 

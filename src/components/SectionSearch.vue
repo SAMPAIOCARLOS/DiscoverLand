@@ -5,38 +5,22 @@
         data() {
             return {
                 list_continent: ['Africa', 'Americas', 'Asia', 'Europe', 'Oceania'],
-                array_mod: [],
                 selectedOption: '',
-                array_mod_input: [],
-                title: null,
                 filter: ''
             }
         },
         methods: {
             filter_data() {
-                this.array_mod = this.DataApi.filter(data => this.selectedOption === data.region)
+                const filteredByRegion  = this.DataApi.filter(data => this.selectedOption === data.region)
 
-                console.log(this.array_mod)
-
-                this.$emit('eventFilter', this.array_mod);
-                this.$emit('open_country')
+                this.$emit('eventFilter', filteredByRegion);
+                this.$emit('open_country') //esse evento "eventFilter" é utilizado duas vezes tanto quando é digitado alguma coisa no input e o valor do select é ativado
             },
             new_value_country() {
-                this.array_mod_input = this.DataApi.forEach(card => {
-                    this.title = card.name.toLowerCase()
-                    this.filter.toLowerCase()
-
-                    if(this.title.startsWith(this.filter)) {
-                        this.$emit('teste', card)
-
-                        // console.log(card)
-
-                        
-                        //OS DADOS DESSE FILTRO FEITO COM O IF ESTÁ COM PROBLEMA E POR ISSO O COMPONENTE PAI ESTÁ RECEBENDO OS
-                        //DADOS DESSE EMIT QUEBRADO
-                    }
-                    
-                });
+                const filteredByName = this.DataApi.filter(card => card.name.toLowerCase().startsWith(this.filter.toLowerCase()))
+                
+                this.$emit('eventFilter', filteredByName);
+                this.$emit('open_country');
             }
 
         },

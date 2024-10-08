@@ -1,9 +1,30 @@
 <script>
+import ModalInfor from './ModalInfor.vue';
+
     export default {
         name: 'CardCountry',
+        components: {
+            ModalInfor
+        },
+        data() {
+            return {
+                valores: [],
+                showModal: false
+            }
+        },
         props: {
             array_data: {type: Array, Required: true}
         },
+        methods: {
+            testeModal(valor) {
+                this.valores = valor
+                this.showModal = true
+
+            },
+            closeModal() {
+                this.showModal = false
+            }
+        }
         
     }
 </script>
@@ -12,21 +33,23 @@
 <template>
     
     <div id="container_flags">
-            <div class="flag" v-for="country in array_data" :key="country.numericCode">
-                <div class="top_flag_img">
-                    <img :src="country.flags.png" alt="">
-                </div>
+        <div class="flag" v-for="country in array_data" :key="country.numericCode" @click="testeModal(country)">
+            <div class="top_flag_img">
+                <img :src="country.flags.png" alt="">
+            </div>
 
-                <div class="text_content_country">
-                    <h1 class="name_country">{{ country.name }}</h1>
-                    <ul class="list_info_country_card">
-                        <li><strong>Population</strong>: {{ country.population }}</li>
-                        <li><strong>Region</strong>: {{ country.region }}</li>
-                        <li><strong>Capital</strong>: {{ country.capital }}</li>
-                    </ul>
-                </div>
+            <div class="text_content_country">
+                <h1 class="name_country">{{ country.name }}</h1>
+                <ul class="list_info_country_card">
+                    <li><strong>Population</strong>: {{ country.population }}</li>
+                    <li><strong>Region</strong>: {{ country.region }}</li>
+                    <li><strong>Capital</strong>: {{ country.capital }}</li>
+                </ul>
             </div>
         </div>
+    </div>
+
+    <ModalInfor :data_modal="[valores]" v-if="showModal" @closeModal="closeModal"/>
 
 </template>
 
