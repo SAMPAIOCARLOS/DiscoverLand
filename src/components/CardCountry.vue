@@ -2,8 +2,9 @@
     export default {
         name: 'CardCountry',
         props: {
-            array_data: {type: Object, Required: true}
-        }
+            array_data: {type: Array, Required: true}
+        },
+        
     }
 </script>
 

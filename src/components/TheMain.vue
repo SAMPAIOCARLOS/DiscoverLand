@@ -11,7 +11,9 @@ import SectionSearch from './SectionSearch.vue';
         data() {
             return {
                 data_api: [],
-                filteredData: []
+                filteredData: [],
+                All_country: true,
+                input_filter: []
             }
         },
         async created() {
@@ -27,6 +29,13 @@ import SectionSearch from './SectionSearch.vue';
                 this.filteredData = filteredData;
                 console.log(this.filteredData);
             },
+            update_country() {
+                this.All_country = false
+            },
+            metodo_teste(valor) {
+                this.input_filter.push(valor)
+                console.log(this.input_filter)
+            }
         },
        
     }
@@ -38,9 +47,13 @@ import SectionSearch from './SectionSearch.vue';
     
     <main>
 
-        <SectionSearch :DataApi="data_api" @dataFiltered="updateFilteredData"/>
+        <SectionSearch :DataApi="data_api" @eventFilter="updateFilteredData" @open_country="update_country" @teste="metodo_teste"/>
 
-        <CardCountry :array_data="filteredData"/>
+
+        <CardCountry :array_data="data_api" v-if="All_country"/>
+        <CardCountry :array_data="filteredData" v-else/>
+
+        <!-- <CardCountry :array_data="input_filter"/> -->
 
     </main>
 

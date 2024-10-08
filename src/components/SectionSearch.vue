@@ -6,7 +6,10 @@
             return {
                 list_continent: ['Africa', 'Americas', 'Asia', 'Europe', 'Oceania'],
                 array_mod: [],
-                selectedOption: ''
+                selectedOption: '',
+                array_mod_input: [],
+                title: null,
+                filter: ''
             }
         },
         methods: {
@@ -15,8 +18,26 @@
 
                 console.log(this.array_mod)
 
-                this.$emit('dataFiltered', this.array_mod);
+                this.$emit('eventFilter', this.array_mod);
+                this.$emit('open_country')
             },
+            new_value_country() {
+                this.array_mod_input = this.DataApi.forEach(card => {
+                    this.title = card.name.toLowerCase()
+                    this.filter.toLowerCase()
+
+                    if(this.title.startsWith(this.filter)) {
+                        this.$emit('teste', card)
+
+                        // console.log(card)
+
+                        
+                        //OS DADOS DESSE FILTRO FEITO COM O IF ESTÁ COM PROBLEMA E POR ISSO O COMPONENTE PAI ESTÁ RECEBENDO OS
+                        //DADOS DESSE EMIT QUEBRADO
+                    }
+                    
+                });
+            }
 
         },
         props: {
@@ -31,7 +52,7 @@
         <div id="container_group_search">
             <div id="container_input_search">
                 <ion-icon name="search-outline"></ion-icon>
-                <input type="text" id="input_search" placeholder="Search for a country">
+                <input type="text" id="input_search" placeholder="Search for a country" v-model="filter" @input="new_value_country">
             </div>
 
             <select name="select_continent" id="select_continent" @change="filter_data()" v-model="selectedOption">
