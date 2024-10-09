@@ -19,7 +19,7 @@
     <div id="container_top_header">
         <div id="container_group_top">
             <h1>
-                Where in the world1?
+                Where in the world?
             </h1>
             <button @click="functionCick">
                 <ion-icon name="sunny-outline" v-if="value_btn_theme"></ion-icon>

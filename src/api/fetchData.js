@@ -1,6 +1,6 @@
 export async function GetData() {
     try {
-        const response = await fetch('/public/data/data.json');
+        const response = await fetch('/data/data.json');
         if (!response.ok) {
             throw new Error('Rede não está disponível');
         }
