@@ -134,10 +134,11 @@ import CardBorderCountry from './CardBorderCountry.vue';
     }
     #container_flag {
         border: 2px solid blue;
-        width: 40%;
+        width: 45%;
+        height: 50vh !important;
     }
     #container_flag > img {
-        object-fit: contain;
+        object-fit: cover;
         width: 100%;
         height: 100%;
     }

@@ -71,5 +71,33 @@ button {
     color: var(--color-text);
     cursor: pointer;
 }
+@media(max-width: 950px) {
+    h1 {
+        font-size: 2.5vw;
+    }
 
+    button {
+        font-size: 2vw;
+    }
+}
+
+@media(max-width: 714px) {
+    h1 {
+        font-size: 3.5vw;
+    }
+
+    button {
+        font-size: 3vw;
+    }
+}
+
+@media(max-width: 350px) {
+    h1 {
+        font-size: 4.5vw;
+    }
+
+    button {
+        font-size: 3.5vw;
+    }
+}
 </style>

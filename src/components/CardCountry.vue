@@ -16,7 +16,7 @@ import ModalInfor from './ModalInfor.vue';
             array_data: {type: Array, Required: true}
         },
         methods: {
-            testeModal(valor) {
+            valueModal(valor) {
                 this.valores = valor
                 this.showModal = true
 
@@ -33,7 +33,7 @@ import ModalInfor from './ModalInfor.vue';
 <template>
     
     <div id="container_flags">
-        <div class="flag" v-for="country in array_data" :key="country.numericCode" @click="testeModal(country)">
+        <div class="flag" v-for="country in array_data" :key="country.numericCode" @click="valueModal(country)">
             <div class="top_flag_img">
                 <img :src="country.flags.png" alt="">
             </div>
@@ -63,6 +63,7 @@ import ModalInfor from './ModalInfor.vue';
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    gap: 1vw;
 }
 
 
@@ -111,5 +112,58 @@ import ModalInfor from './ModalInfor.vue';
     flex-direction: column;
     gap: 0.7vw;
     font-size: 1vw;
+}
+
+@media(max-width: 1084px) {
+    .flag {
+        width: 40vw;
+    }
+}
+@media(max-width: 950px) {
+    .name_country {
+        font-size: 3vw;
+    }
+    .list_info_country_card {
+        font-size: 1.6vw;
+    }
+}
+
+@media(max-width: 714px) {
+    .flag {
+        width: 60vw;
+        border-radius: 1.2vw;
+    }
+    #container_flags {
+        justify-content: center;
+    }
+    .top_flag_img {
+        height: 65%;
+    }
+
+    .top_flag_img > img {
+        border-radius: 1.2vw;
+    }
+}
+
+@media(max-width: 600px) {
+    .flag {
+        width: 80vw;
+    }
+
+    .name_country {
+        font-size: 4.5vw;
+    }
+    .list_info_country_card {
+        font-size: 2.3vw;
+    }
+}
+
+@media(max-width: 350px) {
+    .name_country {
+        font-size: 6.5vw;
+    }
+    .list_info_country_card {
+        font-size: 3.3vw;
+    }
 }
 </style>

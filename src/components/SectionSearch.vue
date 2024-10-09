@@ -93,6 +93,8 @@
     font-size: 1.1vw;
     outline: none;
     color: var(--color-text);
+    width: 100%;
+    height: 100%;
 }
 #input_search::placeholder{
     color: var(--color-text);
@@ -111,5 +113,87 @@
 }
 #select_continent:focus {
     border: 2px solid white;
+}
+@media(max-width: 950px) {
+    #input_search::placeholder {
+        font-size: 1.7vw;
+    }
+    #input_search {
+        font-size: 1.7vw;
+    }
+    #container_input_search > ion-icon {
+        font-size: 1.7vw;
+    }
+
+    #select_continent {
+        font-size: 1.7vw;
+    }
+}
+
+@media(max-width: 750px) {
+    #container_input_search{
+        width: 30vw;
+    }
+
+    #select_continent {
+        width: 30vw;
+    }
+}
+@media(max-width: 600px) {
+    #input_search::placeholder {
+        font-size: 2.5vw;
+    }
+    #input_search {
+        font-size: 2.5vw;
+    }
+    #container_input_search > ion-icon {
+        font-size: 2.5vw;
+    }
+
+    #select_continent {
+        font-size: 2.5vw;
+    }
+
+}
+
+@media(max-width: 500px) {
+    #container_input_search{
+        width: 40vw;
+        min-width: 200px;
+    }
+
+    #select_continent {
+        width: 40vw;
+        min-width: 200px;
+    }
+    
+    #container_group_search {
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+}
+
+@media(max-width: 484px) {
+    #select_continent {
+        width: 100%;
+    }
+
+    #container_input_search {
+        width: 100%;
+    }
+
+    #input_search::placeholder {
+        font-size: 3.5vw;
+    }
+    #input_search {
+        font-size: 3.5vw;
+    }
+    #container_input_search > ion-icon {
+        font-size: 3.5vw;
+    }
+
+    #select_continent {
+        font-size: 3.5vw;
+    }
 }
 </style>
