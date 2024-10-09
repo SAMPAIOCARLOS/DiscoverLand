@@ -1,15 +1,18 @@
 <script>
 import ModalInfor from './ModalInfor.vue';
 
+
     export default {
         name: 'CardCountry',
         components: {
-            ModalInfor
+            ModalInfor,
+
         },
         data() {
             return {
                 valores: [],
-                showModal: false
+                showModal: false,
+                showBackground: false
             }
         },
         props: {
@@ -51,12 +54,12 @@ import ModalInfor from './ModalInfor.vue';
 
     <ModalInfor :data_modal="[valores]" v-if="showModal" @closeModal="closeModal"/>
 
+
 </template>
 
 
 <style scoped>
 #container_flags {
-    /* border: 1px solid red; */
     width: 85%;
     margin: auto;
     min-height: 100vh;
@@ -81,7 +84,6 @@ import ModalInfor from './ModalInfor.vue';
     box-shadow: 1px 1px 30px #ffffff41;
 }
 .top_flag_img {
-    /* border: 1px solid red; */
     width: 100%;
     height: 50%;
 }
@@ -93,7 +95,6 @@ import ModalInfor from './ModalInfor.vue';
 }
 
 .text_content_country {
-    /* border: 1px solid blue; */
     width: 85%;
     height: 50%;
     margin: auto;

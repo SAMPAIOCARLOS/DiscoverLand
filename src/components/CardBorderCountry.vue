@@ -23,15 +23,19 @@
 
 <style scoped>
 #container_border_country {
-    border: 1px solid red;
     display: flex;
     gap: 5px;
     align-items: center;
+    margin-bottom: 50px;
 }
 #container_cards_border_country {
     display: flex;
     gap: 10px;
     flex-wrap: wrap;
+    
+}
+h2 {
+    font-size: 2vw;
 }
 .card_border_country {
     background-color: var(--background-main);
@@ -41,5 +45,41 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 1vw;
+    transition: all 0.5s;
+}
+
+.card_border_country:hover {
+    scale: 1.1;
+}
+
+@media(max-width: 1000px) {
+    h2 {
+        font-size: 3vw;
+    }
+
+    .card_border_country {
+        font-size: 2vw;
+    }
+}
+
+@media(max-width: 500px) {
+    #container_border_country {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+    }
+    #container_cards_border_country {
+        justify-content: center;
+    }
+
+    h2 {
+        font-size: 4vw;
+        margin-top: 50px;
+    }
+
+    .card_border_country {
+        font-size: 3vw;
+    }
 }
 </style>

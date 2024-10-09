@@ -47,7 +47,6 @@
 #container_group_top {
     width: 85vw;
     height: 100%;
-    border: 1px solid red;
     margin: auto;
     display: flex;
     justify-content: space-between;

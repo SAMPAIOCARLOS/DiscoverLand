@@ -55,10 +55,8 @@
     width: 100vw;
     height: 20vh;
     background-color: var(--background-main);
-    /* display: flex; */
 }
 #container_group_search {
-    /* border: 1px solid red; */
     width: 85%;
     height: 100%;
     margin: auto;
@@ -110,7 +108,10 @@
     padding-left: 1vw;
     font-size: 1.1vw;
     transition: all 0.5s;
+    position: relative;
 }
+
+
 #select_continent:focus {
     border: 2px solid white;
 }
